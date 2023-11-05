@@ -1,30 +1,45 @@
-import React, { useState } from 'react'
+import React, { useState , useEffect  } from 'react'
 import {Container,Input,Button} from '@mui/material'
 import {useDispatch ,useSelector} from 'react-redux'
 import { addUser, editUser } from './UserReducer';
-import {useLocation, useNavigate, useParams} from "react-router-dom"
+import { useNavigate, useParams} from "react-router-dom"
+import { userList } from './Data';
 
 
 function Update() {
-    const userId = useParams();
-    console.log(userId);
-    const user = useSelector((state) =>
-    state.users.find((user) => user.id === userId)
-  );
+  const { id } = useParams();
+  const numericId = Number(id); // Convert the id from string to number
 
-    const [name,setName] = useState();
-    const [email,setEmail] = useState();
+
+  const user = useSelector((state) =>
+  state.users.find((user) => user.id === numericId)
+);
+  
+  const [name, setName] = useState('');  
+  const [email, setEmail] = useState('');
+
+  useEffect(() => {
+    if (user) {
+      setName(user.name);
+      setEmail(user.email);
+    }
+  }, [user]);
     const dispatch = useDispatch();
-    
+    const Navigate= useNavigate();
 
- const handleClick =()=>
- {
+ const handleClick =(e)=>
+ { e.preventDefault();
   dispatch(editUser({
-    id:userId,
-    name,
-    email
-  }))
- }
+    id:numericId,
+    name:name,
+    email:email,
+  }));
+  Navigate('/')
+ };
+ console.log('user:', user);
+ console.log('numericId:', numericId);
+ console.log('name:', name);
+ console.log('email:', email);
 
 
 

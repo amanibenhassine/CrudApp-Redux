@@ -42,21 +42,24 @@ export default function Home() {
           </TableRow>
         </TableHead>
         <TableBody>
-          {rows.map((row) => (
+          {rows.map(({ id, name, email }, i)=> (
             <TableRow
-              key={row.id}
+              key={id}
               sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
             >
               <TableCell component="th" scope="row">
-                {row.id}
+                {id}
               </TableCell>
-              <TableCell align="right">{row.name}</TableCell>
-              <TableCell align="right">{row.email}</TableCell>
+              <TableCell align="right">{name}</TableCell>
+              <TableCell align="right">{email}</TableCell>
               <TableCell align="right">
-              <Link to={'/edit/${key}'} ><Button variant="contained" color="success">Edit</Button></Link>
-              </TableCell>
+              <Link to={`/edit/${id}`}>
+  <Button variant="contained" color="success">
+    Edit
+  </Button>
+</Link>              </TableCell>
               <TableCell align="right">
-              <Button onClick={()=>handleDelete(row.id)} variant="contained" color="error">Delete</Button>
+              <Button onClick={()=>handleDelete(id)} variant="contained" color="error">Delete</Button>
 
               </TableCell>
             </TableRow>

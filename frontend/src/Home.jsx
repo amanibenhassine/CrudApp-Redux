@@ -42,28 +42,30 @@ export default function Home() {
           </TableRow>
         </TableHead>
         <TableBody>
-          {rows.map(({ id, name, email }, i)=> (
-            <TableRow
-              key={id}
-              sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
-            >
-              <TableCell component="th" scope="row">
-                {id}
-              </TableCell>
-              <TableCell align="right">{name}</TableCell>
-              <TableCell align="right">{email}</TableCell>
-              <TableCell align="right">
-              <Link to={`/edit/${id}`}>
-  <Button variant="contained" color="success">
-    Edit
-  </Button>
-</Link>              </TableCell>
-              <TableCell align="right">
-              <Button onClick={()=>handleDelete(id)} variant="contained" color="error">Delete</Button>
+          {rows.map(({ id, name, email }, i)=> {
+            return (
+              <TableRow
+                key={id}
+                sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
+              >
+                <TableCell component="th" scope="row">
+                  {id}
+                </TableCell>
+                <TableCell align="right">{name}</TableCell>
+                <TableCell align="right">{email}</TableCell>
+                <TableCell align="right">
+                  <Link to={`/edit/${id}`}>
+                    <Button variant="contained" color="success">
+                      Edite
+                    </Button>
+                  </Link>              </TableCell>
+                <TableCell align="right">
+                  <Button onClick={() => handleDelete(id)} variant="contained" color="error">Delete</Button>
 
-              </TableCell>
-            </TableRow>
-          ))}
+                </TableCell>
+              </TableRow>
+            );
+          })}
         </TableBody>
       </Table>
     </TableContainer>

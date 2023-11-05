@@ -6,10 +6,13 @@ const initialState = [
   ];
 
 
-  export const fetchUsers = createAsyncThunk("fetchUsers", async () => {
-    const response = await fetch("/users");
-    const users = await response.json();
-    return users;
+  export const fetchUsers = createAsyncThunk('fetchUsers', async () => {
+    try {
+      const response = await axios.get('/users');
+      return response.data;
+    } catch (error) {
+      throw error; 
+    }
   });
 const userSlice =createSlice ({
     name:"users",

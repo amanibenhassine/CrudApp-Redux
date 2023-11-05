@@ -1,12 +1,12 @@
-export const ListUser =[
+export const userList =[
     {
         id:1,
-        nom:"amani",
+        name:"amani",
         email:"amani@gmail.com"
     },
     {
         id:2,
-        nom:"amani",
+        name:"amani",
         email:"amani@gmail.com"
     },
 ]

@@ -1,9 +1,9 @@
 import { createSlice } from "@reduxjs/toolkit";
-import {ListUser }from "./Data.jsx";
+import {userList }from "./Data.jsx";
 
 const userSlice =createSlice ({
     name:"profile",
-    initialState:ListUser,
+    initialState:userList,
     reducers:{
         getUser:(state,action)=>
         {
@@ -12,7 +12,8 @@ const userSlice =createSlice ({
        
         addUser:(state,action)=>
         {
-            return state.push(action.payload);
+            state.push(action.payload);
+            console.log(action);
         },
         editUser:(state,action)=>
           {

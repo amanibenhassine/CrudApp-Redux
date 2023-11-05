@@ -8,7 +8,7 @@ import TableRow from '@mui/material/TableRow';
 import Paper from '@mui/material/Paper';
 import { useDispatch, useSelector } from 'react-redux';
 import { Button } from '@mui/material';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { deleteUser } from './UserReducer';
 
 
@@ -19,8 +19,11 @@ import { deleteUser } from './UserReducer';
 export default function Home() {
   const rows = useSelector((state)=>state.users)
   const dispatch= useDispatch();
+
+  const navigate= useNavigate();
   const handleDelete=(id)=>{
     dispatch(deleteUser({id:id}))
+    
   }
   return (
     <>
@@ -47,10 +50,10 @@ export default function Home() {
               <TableCell component="th" scope="row">
                 {row.id}
               </TableCell>
-              <TableCell align="right">{row.nom}</TableCell>
+              <TableCell align="right">{row.name}</TableCell>
               <TableCell align="right">{row.email}</TableCell>
               <TableCell align="right">
-              <Button variant="contained" color="success">Edit</Button>
+              <Link to="/edit/${rows.id}" ><Button variant="contained" color="success">Edit</Button></Link>
               </TableCell>
               <TableCell align="right">
               <Button onClick={()=>handleDelete(rows.id)} variant="contained" color="error">Delete</Button>

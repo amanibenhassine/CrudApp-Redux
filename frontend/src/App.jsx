@@ -2,7 +2,7 @@
 import './App.css'
 import Home from './Home'
 import Create from './Create.jsx'
-import{BrowserRouter, Routes ,Route} from "react-router-dom"
+import{BrowserRouter , Routes ,Route} from "react-router-dom"
 import Update from './Update.jsx'
 function App() {
 

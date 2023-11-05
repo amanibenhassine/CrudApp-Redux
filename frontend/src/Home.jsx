@@ -53,10 +53,10 @@ export default function Home() {
               <TableCell align="right">{row.name}</TableCell>
               <TableCell align="right">{row.email}</TableCell>
               <TableCell align="right">
-              <Link to="/edit/${rows.id}" ><Button variant="contained" color="success">Edit</Button></Link>
+              <Link to={'/edit/${key}'} ><Button variant="contained" color="success">Edit</Button></Link>
               </TableCell>
               <TableCell align="right">
-              <Button onClick={()=>handleDelete(rows.id)} variant="contained" color="error">Delete</Button>
+              <Button onClick={()=>handleDelete(row.id)} variant="contained" color="error">Delete</Button>
 
               </TableCell>
             </TableRow>

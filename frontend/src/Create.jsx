@@ -32,8 +32,8 @@ const handleClick = () => {
     <Container>  
       
       <h1>add new user</h1>
-      <Input placeholder="entre name" value={name} onChange={e=>setName(e.target.value)} fullWidth	></Input>
-      <Input placeholder ="enter email "value={email} onChange={e=>setEmail(e.target.value)}fullWidth	></Input>
+      <Input placeholder="entre name" name="name" value={name} onChange={e=>setName(e.target.value)} fullWidth	></Input>
+      <Input placeholder ="enter email "name ="email"value={email} onChange={e=>setEmail(e.target.value)}fullWidth	></Input>
       <Button variant="contained" color="success" onClick={handleClick}>add</Button>
 
       

@@ -1,8 +1,8 @@
 import { createSlice,createAsyncThunk } from "@reduxjs/toolkit";
 import {userList }from "./Data.jsx";
 const initialState = [
-    { id: "1", name: "Dave Patrick", email: "dave@gmail.com" },
-    { id: "2", name: "Hank Gluhwein", email: "hank@gmail.com" },
+    { id: "1", name: "amani", email: "amani@gmail.com" },
+    { id: "2", name: "ahmed", email: "ahmed@gmail.com" },
   ];
 
 
